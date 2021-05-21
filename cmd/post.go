@@ -13,8 +13,8 @@ var postCmd = &cobra.Command{
 	Short: "http post request",
 	Args:  cobra.MinimumNArgs(1),
 	Example: `
-	gcurl post -H '{"headers": {"accept": "application/json"}}' \
-	-B '{"body": {"title": "foo", "body": "bar", "userId": 1}}' \
+	gcurl post -H '{"accept": "application/json"}' \
+	-B '{"title": "foo", "body": "bar", "userId": 1}' \
 	https://jsonplaceholder.typicode.com/posts
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {

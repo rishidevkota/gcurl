@@ -48,7 +48,7 @@ Usage:
 Examples:
 
 ```
-gcurl get -H '{"headers": {"accept": "application/json"}}' https://jsonplaceholder.typicode.com/todos/1
+gcurl get -H '{"accept": "application/json"}' https://jsonplaceholder.typicode.com/todos/1
 ``` 
 
 Flags:
@@ -63,8 +63,8 @@ Usage:
 Examples:
 
 ```
-gcurl post -H '{"headers": {"accept": "application/json"}}' \
--B '{"body": {"title": "foo", "body": "bar", "userId": 1}}' \
+gcurl post -H '{"accept": "application/json"}' \
+-B '{"title": "foo", "body": "bar", "userId": 1}' \
 https://jsonplaceholder.typicode.com/posts
 ```
 

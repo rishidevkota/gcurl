@@ -13,7 +13,7 @@ var getCmd = &cobra.Command{
 	Short: "http get request",
 	Args:  cobra.MinimumNArgs(1),
 	Example: `
-	gcurl get -H '{"headers": {"accept": "application/json"}}' https://jsonplaceholder.typicode.com/todos/1 
+	gcurl get -H '{"accept": "application/json"}' https://jsonplaceholder.typicode.com/todos/1 
 	`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var req client.Request
