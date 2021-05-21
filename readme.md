@@ -1,7 +1,10 @@
 # gcurl
 It is a curl but with json support
+
 ## Installing
-```go install gcurl```
+```shell
+go install gcurl
+```
 
 ## File command
 it open json request file and do the request
@@ -47,7 +50,7 @@ Usage:
 
 Examples:
 
-```
+```shell
 gcurl get -H '{"accept": "application/json"}' https://jsonplaceholder.typicode.com/todos/1
 ``` 
 
@@ -62,7 +65,7 @@ Usage:
 
 Examples:
 
-```
+```shell
 gcurl post -H '{"accept": "application/json"}' \
 -B '{"title": "foo", "body": "bar", "userId": 1}' \
 https://jsonplaceholder.typicode.com/posts
