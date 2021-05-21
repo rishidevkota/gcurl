@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 )
 
@@ -16,7 +15,7 @@ type Request struct {
 	Body    *map[string]interface{} `json:"body"`
 }
 
-func Do(request Request) {
+func Do(request Request) error {
 	client := &http.Client{}
 	var req *http.Request
 	var err error
@@ -25,16 +24,16 @@ func Do(request Request) {
 	case "GET":
 		req, err = http.NewRequest(request.Method, request.URL, nil)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	case "POST":
 		b, err := json.Marshal(request.Body)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 		req, err = http.NewRequest(request.Method, request.URL, bytes.NewReader(b))
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
 
@@ -46,14 +45,16 @@ func Do(request Request) {
 
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	fmt.Println(string(body))
+
+	return nil
 }
