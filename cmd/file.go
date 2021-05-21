@@ -14,7 +14,7 @@ var fileCmd = &cobra.Command{
 	Short: "it open json request file and do the request",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		//fmt.Println("get called")
+
 		b, err := ioutil.ReadFile(args[0])
 		if err != nil {
 			log.Fatal(err)
@@ -24,7 +24,7 @@ var fileCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
-		//fmt.Println(req)
+
 		client.Do(req)
 	},
 }
